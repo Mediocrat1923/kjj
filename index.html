@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Приглашение на свадьбу</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap');
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #fff8dc;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .intro {
+            height: 100vh;
+            background-color: #fff8dc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .intro h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            color: #8B5E3C;
+            margin: 0;
+        }
+
+        .intro h2 {
+            font-size: 1.5em;
+            color: #000;
+            margin-top: 20px;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            margin-top: 40px;
+            max-width: 600px;
+        }
+
+        main {
+            background-color: #fff8dc;
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .color-dots {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #999;
+        }
+
+        .dot.brown { background-color: #8B5E3C; }
+        .dot.lightbrown { background-color: #d2b48c; }
+        .dot.khaki { background-color: #78866b; }
+        .dot.darkgreen { background-color: #013220; }
+        .dot.beige { background-color: #eeddc1; }
+
+        input, select, button {
+            padding: 10px;
+            margin: 8px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #8B5E3C;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #a36f4d;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 40px;
+        }
+
+        .success-message {
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <h1>Ильсур и Регина</h1>
+        <h2>12.09.2025</h2>
+        <p>Приглашаем вас разделить с нами радость особенного для нас события и стать частью нашей семейной истории, нашей свадьбы.</p>
+    </div>
+
+    <main>
+        <div class="section">
+            <div class="label">Расписание:</div>
+            <div>
+                В 14:00 сбор гостей<br />
+                В 14:30 церемония выездной регистрации<br />
+                В 15:30 начало банкета
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="label">Дресс-код:</div>
+            <div>Будем благодарны, если при выборе наряда, вы поддержите цветовую палитру нашего торжества:</div>
+            <div class="color-dots">
+                <div class="dot brown" title="Коричневый"></div>
+                <div class="dot lightbrown" title="Светло-коричневый"></div>
+                <div class="dot khaki" title="Хакки (приглушённо-зелёный)"></div>
+                <div class="dot darkgreen" title="Тёмно-зелёный"></div>
+                <div class="dot beige" title="Бежевый"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="label">Адрес:</div>
+            Республика Башкортостан, г. Стерлитамак, ул. Пугачёва, 1
+            <iframe 
+                src="https://yandex.ru/map-widget/v1/?ll=55.968892%2C53.614959&z=16&pt=55.968892%2C53.614959~place"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <form action="https://formspree.io/f/mdkzljvo" method="POST">
+            <div class="section">
+                <label for="guest">Введите ваши имена(имя):</label>
+                <input type="text" id="guest" name="Имя гостя" required />
+            </div>
+
+            <div class="section">
+                <label for="rsvp">Вы придёте?</label>
+                <select id="rsvp" name="Придёт ли гость" required>
+                    <option value="">-- Выберите --</option>
+                    <option value="Да">Да</option>
+                    <option value="Нет">Нет</option>
+                </select>
+            </div>
+
+            <div class="section">
+                <label for="drink">Что вы предпочитаете пить?</label>
+                <select id="drink" name="Напиток" required>
+                    <option value="">-- Выберите --</option>
+                    <option value="Водка">Водка</option>
+                    <option value="Вино">Вино</option>
+                    <option value="Коньяк">Коньяк</option>
+                    <option value="Не буду пить">Не буду пить</option>
+                </select>
+            </div>
+
+            <button type="submit">Отправить</button>
+            <div class="success-message">Спасибо! Ваша заявка отправлена ❤️</div>
+        </form>
+
+        <div class="footer">
+            <p>Связаться с нами:<br>
+            +7 917 462-14-75 (Ильсур),<br>
+            +7 987 257-06-25 (Регина)</p>
+            <p>Будем рады видеть вас на нашем празднике!</p>
+        </div>
+    </main>
+</body>
+</html>
